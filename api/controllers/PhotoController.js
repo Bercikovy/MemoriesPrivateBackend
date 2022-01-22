@@ -43,12 +43,16 @@ const photo = {
           updatePhoto: async(req,res)=>{
 
 const UpdatePhotoContent= {
-  type:req.body.type,
-  link:req.body.link,
-  title:req.body.title,
-  place:req.body.place
+  //type:req.body.type,
+  //link:req.body.link,
+  //title:req.body.title,
+  //place:req.body.place,
+  like:req.body.like,
+  share:req.body.share
+
 }
 try{
+  console.log(req.body.like);
   const justUpdatePhoto = await Photo.findByIdAndUpdate(req.params.id,UpdatePhotoContent)
   res.send(justUpdatePhoto);
             }

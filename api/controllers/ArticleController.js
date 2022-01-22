@@ -8,7 +8,7 @@ const article= {
         try{
           const articles= await Article.find();
             res.json(articles);
-            console.log("jest");
+            
           }
           catch(err){
             res.json({message:err});
@@ -16,9 +16,11 @@ const article= {
       },
 
         getSingleArticle: async(req,res)=>{
+          console.log("article");
           try{
-            const article= await Article.findById(req.params.id);
+            const article= await Article.find({_id:req.params.id});
               res.send(article);
+              console.log("article", res.send);
             }
             catch(err){
               res.json({message:err});
@@ -63,7 +65,7 @@ try{
           getAllFindArticles:async(req,res)=>{
             //console.log(req.params.id);
             try{
-              const articles= await Article.find({type:req.params.id});
+              const articles= await Article.find({cathegory:req.params.id});
                 res.send(articles);
               }
               catch(err){

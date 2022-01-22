@@ -8,6 +8,8 @@ const PhotoSchema = new Schema({
     link: String,
     title: String,
     place:String,
+    like:Number,
+    share:Number,
     date:{
         type:Date,
         default:Date.now
